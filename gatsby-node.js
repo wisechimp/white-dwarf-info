@@ -23,6 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             date
+            summary
           }
         }
       }
@@ -40,6 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           issue: issue.node.issue,
           date: issue.node.date,
+          summary: issue.node.summary,
           coverSrc: issue.node.coverSrc,
         },
       })

@@ -2,11 +2,13 @@
   {
     "issue": "101",
     "coverSrc": "./images/white_dwarf_magazine_cover_101.jpg",
-    "date": "May 1988"
+    "date": "May 1988",
+    "summary": "The new century started with Blood Bowl and a scenario for the RuneQuest supplement Griffin Island."
   },
   {
     "issue": "102",
     "coverSrc": "./images/white_dwarf_magazine_cover_102.jpg",
-    "date": "June 1988"
+    "date": "June 1988",
+    "summary": "The cover gave a fair impression of what to expect inside with Dark Future being introduced to the unsuspecting masses. Although there was also a massive section on the Fimir, maybe a first draft of the cover looked like <a href=\"white-dwarf-102-what-if.php\"> this...</a>"
   }
 ]
