@@ -10,7 +10,12 @@ Ideally one of the the intentions of this website is to help visitors find infor
 </p>
 
 <p>
-For example if you would like to find which issues of White Dwarf feature <a href="http://lmgtfy.com/?q=terminators+%22eavy+metal%22+site%3Awhitelibrary.info" target="_blank">Terminators in 'Eavy Metal</a> then you can search as in the link. (For your information sometimes this website is a little slow to display the google search results in which case choosing "Images" search then flicking back to "All" encourages it to display the search results prioperly.)
+For example if you would like to find which issues of White Dwarf feature <a
+  href="http://lmgtfy.com/?q=terminators+%22eavy+metal%22+site%3Awhitelibrary.info"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+Terminators in 'Eavy Metal</a> then you can search as in the link. (For your information sometimes this website is a little slow to display the google search results in which case choosing "Images" search then flicking back to "All" encourages it to display the search results prioperly.)
 </p>
 
 <p>
