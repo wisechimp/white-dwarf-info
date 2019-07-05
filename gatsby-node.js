@@ -13,8 +13,12 @@ exports.createPages = ({ graphql, actions }) => {
             issue
             coverSrc {
               childImageSharp {
-                fixed(width: 140, height: 200) {
+                fluid(maxWidth: 420, maxHeight: 600) {
                   src
+                  srcSet
+                  aspectRatio
+                  sizes
+                  base64
                 }
               }
             }
@@ -34,7 +38,9 @@ exports.createPages = ({ graphql, actions }) => {
         path: `/${"white-dwarf-magazine-issue-" + issue.node.issue}`,
         component: WhiteDwarfIssueTemplate,
         context: {
-          id: issue.node.issue,
+          issue: issue.node.issue,
+          date: issue.node.date,
+          coverSrc: issue.node.coverSrc,
         },
       })
     })

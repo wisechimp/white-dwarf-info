@@ -19,7 +19,7 @@ class Issues extends Component {
                 key={node.issue}
                 issueCoverSrc = {node.coverSrc.childImageSharp.fixed}
                 issueCoverAltText = {"The cover of White Dwarf magazine issue " + node.issue}
-                issueLink = {"white-dwarf-magazine-issue-" + node.issue}
+                issueLink = {"/white-dwarf-magazine-issue-" + node.issue + "/"}
                 issueNumber = {"White Dwarf " + node.issue}
                 issueDate = {node.date}
               />
