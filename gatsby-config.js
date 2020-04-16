@@ -11,13 +11,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-transformer-json`,
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `whitedwarfdata`,
-        path: `${__dirname}/src/data`,
+        path: `${__dirname}/src/markdown-pages`,
       },
     }
   ]

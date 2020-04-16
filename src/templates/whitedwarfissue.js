@@ -6,7 +6,7 @@ import styles from './whitedwarfissue.module.css'
 
 const WhiteDwarfIssueTemplate = props => {
   const {pageContext} = props
-  const {issue, date, summary, coverSrc} = pageContext
+  const {issue, date, summary, coverSrc, contents} = pageContext
   console.log(pageContext)
   return (
     <Layout pageTitle={"White Dwarf " + issue}>
@@ -17,6 +17,7 @@ const WhiteDwarfIssueTemplate = props => {
         fluid={coverSrc.childImageSharp.fluid}
         alt={"The cover of White Dwarf magazine issue " + issue}
       />
+      <p dangerouslySetInnerHTML={{ __html: contents }} />
     </Layout>
   )
 }
