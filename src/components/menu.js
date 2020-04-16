@@ -1,7 +1,7 @@
-import React from 'react'
-import { Nav, Navbar } from 'react-bootstrap'
+import React from "react"
+import { Nav, Navbar } from "react-bootstrap"
 
-export default (props) => (
+export default props => (
   <Navbar expand="sm">
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Brand className="actionBar">{props.pageTitle}</Navbar.Brand>
@@ -16,9 +16,9 @@ export default (props) => (
         <Nav.Item>
           <Nav.Link href="/search">Search</Nav.Link>
         </Nav.Item>
-        <Nav.Item>
+        {/* <Nav.Item>
           <Nav.Link href="/helpme/">Help Me!</Nav.Link>
-        </Nav.Item>
+        </Nav.Item> */}
         <Nav.Item>
           <Nav.Link href="/links/">Links</Nav.Link>
         </Nav.Item>
