@@ -3,27 +3,22 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const WhiteDwarfIssueTemplate = path.resolve("./src/templates/whitedwarfissue.js")
+  const WhiteDwarfIssueTemplate = path.resolve(
+    "./src/templates/whitedwarfissue.js"
+  )
 
   return graphql(`
     query {
-      allWhitedwarfdataJson {
+      allMarkdownRemark(sort: { fields: frontmatter___issue }) {
         edges {
           node {
-            issue
-            coverSrc {
-              childImageSharp {
-                fluid(maxWidth: 420, maxHeight: 600) {
-                  src
-                  srcSet
-                  aspectRatio
-                  sizes
-                  base64
-                }
-              }
+            excerpt
+            frontmatter {
+              date
+              issue
+              summary
+              coverSrc
             }
-            date
-            summary
           }
         }
       }
@@ -33,16 +28,17 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    const WhiteDwarfIssues = result.data.allWhitedwarfdataJson.edges
+    const WhiteDwarfIssues = result.data.allMarkdownRemark.edges
     WhiteDwarfIssues.forEach(issue => {
       createPage({
-        path: `/${"white-dwarf-magazine-issue-" + issue.node.issue}`,
+        path: `/${"white-dwarf-magazine-issue-" +
+          issue.node.frontmatter.issue}`,
         component: WhiteDwarfIssueTemplate,
         context: {
-          issue: issue.node.issue,
-          date: issue.node.date,
-          summary: issue.node.summary,
-          coverSrc: issue.node.coverSrc,
+          issue: issue.node.frontmatter.issue,
+          date: issue.node.frontmatter.date,
+          summary: issue.node.frontmatter.summary,
+          coverSrc: issue.node.frontmatter.coverSrc,
         },
       })
     })

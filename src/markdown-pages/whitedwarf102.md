@@ -1,8 +1,10 @@
 ---
 issue: "102"
 date: "June 1988"
-summary: "The cover gave a fair impression of what to expect inside with Dark Future being introduced to the unsuspecting masses. Although there was also a massive section on the Fimir, maybe a first draft of the cover looked like <a href=\"white-dwarf-102-what-if.php\"> this...</a>"
+summary: 'The cover gave a fair impression of what to expect inside with Dark Future being introduced to the unsuspecting masses. Although there was also a massive section on the Fimir, maybe a first draft of the cover looked like <a href="white-dwarf-102-what-if.php"> this...</a>'
+coverSrc: "../images/white_dwarf_magazine_cover_102.jpg"
 ---
+
 <li>p3 - Illuminations: Some excellent illustrations by <a href="http://www.google.com/search?q=pete+knifton" >Pete Knifton</a>. Pete had inked a number of the pictures in the previous issue of White Dwarf (<a href="white-dwarf-101.php" >101</a>) and in the newly released Dark Future material. He went on to do lots more great work, as you can see for yourself, if you're interested.</li>
 <li>p8 - Culture Shock: News from the Games Workshop world, with Warhammer Armies (WFB 3rd Ed.) in the pipeline, job opportunities and the opening of the first specialist stockist in Cardiff. Includes a correction for the Flame Bright's rules in "Heroes for Dungeonquest".</li>
 <li>p13 - Critical Mass: A review of recently released SciFi/Fantasy literature. My highlight is a concise pasting of the "turgid Dragonlance Chronicles" series!</li>

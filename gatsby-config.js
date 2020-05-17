@@ -7,10 +7,9 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "White Library"
+    title: "White Library",
   },
   plugins: [
-    `gatsby-transformer-json`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -20,6 +19,6 @@ module.exports = {
         name: `whitedwarfdata`,
         path: `${__dirname}/src/markdown-pages`,
       },
-    }
-  ]
+    },
+  ],
 }

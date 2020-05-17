@@ -4,42 +4,47 @@ import { graphql } from "gatsby"
 import IssueCard from "../components/issuecard"
 import Layout from "../components/layout"
 
-export default ({ data }) => (
-  <Layout pageTitle="Issues">
-    <h1>Issues</h1>
-    <div>
-      {data.allWhitedwarfdataJson.edges.map(({ node }) => {
-        return (
-          <IssueCard
-            key={node.issue}
-            issueCoverSrc={node.coverSrc.childImageSharp.fixed}
-            issueCoverAltText={
-              "The cover of White Dwarf magazine issue " + node.issue
-            }
-            issueLink={"/white-dwarf-magazine-issue-" + node.issue + "/"}
-            issueNumber={"White Dwarf " + node.issue}
-            issueDate={node.date}
-          />
-        )
-      })}
-    </div>
-  </Layout>
-)
+export default ({ data }) => {
+  console.log(data)
+
+  return (
+    <Layout pageTitle="Issues">
+      <h1>Issues</h1>
+      <div>
+        {data.allMarkdownRemark.edges.map(({ node }) => {
+          return (
+            <IssueCard
+              key={node.frontmatter.issue}
+              issueCoverSrc={node.frontmatter.coverSrc}
+              issueCoverAltText={
+                "The cover of White Dwarf magazine issue " +
+                node.frontmatter.issue
+              }
+              issueLink={
+                "/white-dwarf-magazine-issue-" + node.frontmatter.issue + "/"
+              }
+              issueNumber={"White Dwarf " + node.frontmatter.issue}
+              issueDate={node.frontmatter.date}
+            />
+          )
+        })}
+      </div>
+    </Layout>
+  )
+}
 
 export const issuesQuery = graphql`
   query {
-    allWhitedwarfdataJson {
+    allMarkdownRemark(sort: { fields: frontmatter___issue }) {
       edges {
         node {
-          issue
-          coverSrc {
-            childImageSharp {
-              fixed(width: 140, height: 200) {
-                ...GatsbyImageSharpFixed
-              }
-            }
+          excerpt
+          frontmatter {
+            date
+            issue
+            summary
+            coverSrc
           }
-          date
         }
       }
     }

@@ -2,7 +2,9 @@
 issue: "101"
 date: "May 1988"
 summary: "The new century started with Blood Bowl and a scenario for the RuneQuest supplement Griffin Island."
+coverSrc: "../images/white_dwarf_magazine_cover_101.jpg"
 ---
+
 <li>p3 - Culture Shock</li>
 <li>p4 - Illuminations - A selection of Russ Nicholson's fine line drawings are on display this month. Fans of the Fighting Fantasy books might recognise his work from The Warlock of Firetop Mountain.</li>
 <li>p8 - Stratagems, Ruses and Ploys - Peter Haines dispenses some Warhammer tips.</li>
