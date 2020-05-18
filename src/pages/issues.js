@@ -5,8 +5,6 @@ import IssueCard from "../components/issuecard"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
-  console.log(data)
-
   return (
     <Layout pageTitle="Issues">
       <h1>Issues</h1>
@@ -15,13 +13,13 @@ export default ({ data }) => {
           return (
             <IssueCard
               key={node.frontmatter.issue}
-              issueCoverSrc={node.frontmatter.coverSrc}
+              issueCoverSrc={node.frontmatter.coverSrc.childImageSharp.fluid}
               issueCoverAltText={
                 "The cover of White Dwarf magazine issue " +
                 node.frontmatter.issue
               }
               issueLink={
-                "/white-dwarf-magazine-issue-" + node.frontmatter.issue + "/"
+                node.frontmatter.slug
               }
               issueNumber={"White Dwarf " + node.frontmatter.issue}
               issueDate={node.frontmatter.date}
@@ -38,12 +36,18 @@ export const issuesQuery = graphql`
     allMarkdownRemark(sort: { fields: frontmatter___issue }) {
       edges {
         node {
-          excerpt
           frontmatter {
+            slug
             date
             issue
             summary
-            coverSrc
+            coverSrc {
+              childImageSharp {
+                fluid(maxHeight: 200) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
