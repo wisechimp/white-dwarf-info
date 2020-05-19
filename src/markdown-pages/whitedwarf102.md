@@ -2,7 +2,7 @@
 slug: "/issues/white-dwarf-magazine-102"
 issue: "102"
 date: "June 1988"
-summary: "The cover gave a fair impression of what to expect inside with Dark Future being introduced to the unsuspecting masses. Although there was also a massive section on the Fimir, maybe a first draft of the cover looked like this..."
+summary: 'The cover gave a fair impression of what to expect inside with Dark Future being introduced to the unsuspecting masses. Although there was also a massive section on the Fimir, maybe a first draft of the cover looked like <a href="../white-dwarf-magazine-102-alternate-cover">this...</a>'
 coverSrc: "../images/white_dwarf_magazine_cover_102.jpg"
 ---
 
