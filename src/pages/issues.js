@@ -8,7 +8,7 @@ export default ({ data }) => {
   return (
     <Layout pageTitle="Issues">
       <h1>Issues</h1>
-      <div>
+      <div className="issues-flow">
         {data.allMarkdownRemark.edges.map(({ node }) => {
           return (
             <IssueCard
@@ -18,9 +18,7 @@ export default ({ data }) => {
                 "The cover of White Dwarf magazine issue " +
                 node.frontmatter.issue
               }
-              issueLink={
-                node.frontmatter.slug
-              }
+              issueLink={node.frontmatter.slug}
               issueNumber={"White Dwarf " + node.frontmatter.issue}
               issueDate={node.frontmatter.date}
             />

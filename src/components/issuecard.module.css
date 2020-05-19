@@ -1,6 +1,6 @@
 .issueCard {
-  margin: auto;
-  max-width: 140px;
+  margin: 0.25em;
+  width: 140px;
 }
 .issueCardText {
   text-align: center;
