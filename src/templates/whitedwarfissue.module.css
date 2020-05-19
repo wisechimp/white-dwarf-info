@@ -1,0 +1,47 @@
+.issueTitle {
+  margin-bottom: 0;
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+.issueSummary {
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 0;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+.issueContainer {
+  padding: 0 0.5em;
+}
+
+.issueCover {
+  float: right;
+  margin: 0 0 1em 1em;
+  width: 40%;
+}
+
+.issueContent {
+  display: inline;
+}
+
+.issueContent p {
+  padding: 0;
+}
+
+@media screen and (max-width: 576px) {
+  .issueContainer {
+    padding: 0;
+  }
+
+  .issueCover {
+    float: none;
+    margin: 0 0 1em 0;
+    width: 100%;
+  }
+
+  .issueContent p {
+    padding: 0 1em;
+  }
+}

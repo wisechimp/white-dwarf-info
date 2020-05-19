@@ -1,25 +1,32 @@
 import React from "react"
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
+import parse from "html-react-parser"
 
 import Layout from "../components/layout"
-import styles from "./whitedwarfissue.module.css"
+import issueStyles from "./whitedwarfissue.module.css"
 
 const WhiteDwarfIssueTemplate = ({ data }) => {
-  console.log(data)
   const { markdownRemark } = data
-  console.log(markdownRemark)
   const { frontmatter, html } = markdownRemark
+  const parsedSummary = parse(frontmatter.summary)
   return (
     <Layout pageTitle={"White Dwarf " + frontmatter.issue}>
-      <h1>{"White Dwarf " + frontmatter.issue}</h1>
-      <p>{frontmatter.date}</p>
-      <p>{frontmatter.summary}</p>
-      <Img
-        fluid={frontmatter.coverSrc.childImageSharp.fluid}
-        alt={"The cover of White Dwarf magazine issue " + frontmatter.issue}
-      />
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <h1 className={issueStyles.issueTitle}>
+        {"White Dwarf " + frontmatter.issue}
+      </h1>
+      <p className={issueStyles.issueSummary}>{parsedSummary}</p>
+      <div className={issueStyles.issueContainer}>
+        <Img
+          className={issueStyles.issueCover}
+          fluid={frontmatter.coverSrc.childImageSharp.fluid}
+          alt={"The cover of White Dwarf magazine issue " + frontmatter.issue}
+        />
+        <div
+          className={issueStyles.issueContent}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </div>
     </Layout>
   )
 }
@@ -37,7 +44,7 @@ export const issueQuery = graphql`
         date
         coverSrc {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 600) {
               ...GatsbyImageSharpFluid
             }
           }
