@@ -9,7 +9,7 @@ export default ({ data }) => {
     <Layout pageTitle="Issues">
       <h1>Issues</h1>
       <div className="issues-flow">
-        {data.allMarkdownRemark.edges.map(({ node }) => {
+        {data.allMdx.edges.map(({ node }) => {
           return (
             <IssueCard
               key={node.frontmatter.issue}
@@ -31,14 +31,13 @@ export default ({ data }) => {
 
 export const issuesQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: frontmatter___issue }) {
+    allMdx(sort: { fields: frontmatter___issue }) {
       edges {
         node {
           frontmatter {
             slug
             date
             issue
-            summary
             coverSrc {
               childImageSharp {
                 fluid(maxHeight: 200) {

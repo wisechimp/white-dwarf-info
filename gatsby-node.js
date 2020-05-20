@@ -6,10 +6,9 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(`
     query {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
-            html
             frontmatter {
               slug
             }
@@ -22,7 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    const WhiteDwarfIssues = result.data.allMarkdownRemark.edges
+    const WhiteDwarfIssues = result.data.allMdx.edges
     WhiteDwarfIssues.forEach(issue => {
       createPage({
         path: issue.node.frontmatter.slug,

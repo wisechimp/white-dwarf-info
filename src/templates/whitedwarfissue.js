@@ -1,14 +1,18 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 import parse from "html-react-parser"
 
 import Layout from "../components/layout"
 import issueStyles from "./whitedwarfissue.module.css"
 
+const mdxComponents = { Link }
+
 const WhiteDwarfIssueTemplate = ({ data }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data
+  const { frontmatter, body } = mdx
   const parsedSummary = parse(frontmatter.summary)
   return (
     <Layout pageTitle={"White Dwarf " + frontmatter.issue}>
@@ -22,10 +26,12 @@ const WhiteDwarfIssueTemplate = ({ data }) => {
           fluid={frontmatter.coverSrc.childImageSharp.fluid}
           alt={"The cover of White Dwarf magazine issue " + frontmatter.issue}
         />
-        <div
+        <MDXProvider
           className={issueStyles.issueContent}
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+          components={mdxComponents}
+        >
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
       </div>
     </Layout>
   )
@@ -35,8 +41,8 @@ export default WhiteDwarfIssueTemplate
 
 export const issueQuery = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         slug
         issue
