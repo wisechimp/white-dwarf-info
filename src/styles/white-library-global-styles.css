@@ -1,65 +1,73 @@
 @import "./variables.css";
 
 h1 {
-  padding-left: 1em;
+	padding-left: 1em;
 }
 
 p {
-  padding: 0 1em;
+	padding: 0 1em;
 }
 
 .issues-flow {
-  border: black solid 1px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+	border: black solid 1px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: var(--primary-dark);
+	background-color: var(--primary-dark);
+	color: var(--primary-light);
+	padding: 0.5em 1em;
 }
 
 .nav-link {
-  padding: 0;
+	padding: 0;
 }
 
 /* Adding a margin for large screens*/
 @media screen and (min-width: 960px) {
-  body {
-    max-width: 960px;
-    margin: auto;
-  }
+	body {
+		max-width: 960px;
+		margin: auto;
+	}
 }
 
 /*Presenting the menu bar in a material designish kind of fashion */
 @media screen and (min-width: 576px) {
-  .actionBar {
-    display: none;
-  }
-  .navbar .navbar-nav {
-    margin: auto;
-  }
+	.actionBar {
+		display: none;
+	}
+
+	.navbar {
+		background-color: var(--primary-dark);
+		margin-bottom: 1em;
+	}
+	.navbar .navbar-nav {
+		margin: auto;
+	}
 }
 
 @media screen and (max-width: 575px) {
-  h1 {
-    display: none;
-  }
-  .navbar-light .navbar-brand {
-    color: var(--primary-dark);
-    margin-right: 0;
-    position: absolute;
-    right: 50%;
-    transform: translate(50%);
-  }
-  .navbar-light .navbar-toggler {
-    background-color: var(--primary-light);
-    color: var(--primary-light);
-  }
-  .navbar-light .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgb(0,0,0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
-  }
-  .nav-link {
-    padding: 0.5em 1em;
-  }
+	h1 {
+		display: none;
+	}
+
+	.navbar-light .navbar-brand {
+		color: var(--primary-dark);
+		margin-right: 0;
+		position: absolute;
+		right: 50%;
+		transform: translate(50%);
+	}
+	.navbar-light .navbar-toggler {
+		background-color: var(--primary-light);
+		color: var(--primary-light);
+	}
+	.navbar-light .navbar-toggler-icon {
+		background-image: url("data:image/svg+xml,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgb(0,0,0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+	}
+	.nav-link {
+		padding: 0.5em 1em;
+	}
 }
