@@ -1,0 +1,8 @@
+.buttonLink {
+	background-color: var(--primary-contrast);
+	border: 1px solid var(--primary-dark);
+	color: var(--primary-dark);
+	font-weight: bolder;
+	padding: 0.5em 2em;
+	text-decoration: none;
+}
