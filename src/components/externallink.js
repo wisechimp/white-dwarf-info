@@ -1,7 +1,12 @@
 import React from "react"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 export default props => (
-  <a href={props.externalLinkHref} target="_blank" rel="noopener noreferrer">
+  <OutboundLink
+    href={props.externalLinkHref}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     {props.externalLinkTitle}
-  </a>
+  </OutboundLink>
 )

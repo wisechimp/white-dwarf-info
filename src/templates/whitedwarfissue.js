@@ -7,9 +7,10 @@ import parse from "html-react-parser"
 
 import Layout from "../components/layout"
 import HeaderLinks from "../components/headerlinks"
+import ExternalLink from "../components/externallink"
 import issueStyles from "./whitedwarfissue.module.css"
 
-const mdxComponents = { Link }
+const mdxComponents = { Link, ExternalLink }
 
 const WhiteDwarfIssueTemplate = ({ data }) => {
   const { mdx } = data
