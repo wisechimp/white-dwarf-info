@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import parse from "html-react-parser"
 
 import Layout from "../components/layout"
+import HeaderLinks from "../components/headerlinks"
 import issueStyles from "./whitedwarfissue.module.css"
 
 const mdxComponents = { Link }
@@ -16,6 +17,7 @@ const WhiteDwarfIssueTemplate = ({ data }) => {
   const parsedSummary = parse(frontmatter.summary)
   return (
     <Layout pageTitle={"White Dwarf " + frontmatter.issue}>
+      <HeaderLinks issueNumber={frontmatter.issue} />
       <h1 className={issueStyles.issueTitle}>
         {"White Dwarf " + frontmatter.issue}
       </h1>
