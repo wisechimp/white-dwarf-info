@@ -13,12 +13,21 @@ import issueStyles from "./whitedwarfissue.module.css"
 const mdxComponents = { Link, ExternalLink }
 
 const WhiteDwarfIssueTemplate = ({ data }) => {
-  const { mdx } = data
-  const { frontmatter, body } = mdx
+  //console.log(data)
+
+  const allIssueNumbers = data.allIssueNumbers.edges.map(({ node }) =>
+    parseInt(node.frontmatter.issue)
+  )
+  //console.log(allIssueNumbers)
+
+  const { frontmatter, body } = data.currentIssue
   const parsedSummary = parse(frontmatter.summary)
   return (
     <Layout pageTitle={"White Dwarf " + frontmatter.issue}>
-      <HeaderLinks issueNumber={frontmatter.issue} />
+      <HeaderLinks
+        allIssueNumbers={allIssueNumbers}
+        issueNumber={parseInt(frontmatter.issue)}
+      />
       <h1 className={issueStyles.issueTitle}>
         {"White Dwarf " + frontmatter.issue}
       </h1>
@@ -44,7 +53,7 @@ export default WhiteDwarfIssueTemplate
 
 export const issueQuery = graphql`
   query($slug: String!) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
+    currentIssue: mdx(frontmatter: { slug: { eq: $slug } }) {
       body
       frontmatter {
         slug
@@ -56,6 +65,15 @@ export const issueQuery = graphql`
             fluid(maxWidth: 600) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+      }
+    }
+    allIssueNumbers: allMdx {
+      edges {
+        node {
+          frontmatter {
+            issue
           }
         }
       }
