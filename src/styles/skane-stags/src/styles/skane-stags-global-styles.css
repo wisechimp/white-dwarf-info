@@ -1,0 +1,97 @@
+h1 {
+  font-size: 2em;
+  margin: 0.5em;
+}
+img.poster {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  padding-bottom: 1em;
+}
+.bodyContent {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.calendarWrapper {
+  margin-top: 1em;
+}
+.calendarWrapper iframe {
+  width: 100%;
+  min-height: 400px;
+}
+.carousel-control-next {
+  margin-bottom: 2.5em;
+}
+.carousel-control-prev {
+  margin-bottom: 2.5em;
+}
+.carousel-indicators li {
+  background-color: rgba(201, 76, 76, 0);
+  background-image: url(../images/balls.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: 2.5em;
+}
+.contactBox {
+  margin: 1em;
+}
+.contactContainer {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1em 1fr;
+  justify-items: center;
+  width: 100%;
+}
+.contactOr {
+  display: inline-block;
+  text-align: center;
+}
+.playerCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1em;
+}
+
+/*Adds margin on large screens*/
+@media screen and (min-width: 996px) {
+  body {
+    max-width: 996px;
+    margin: auto;
+  }
+}
+/*Presenting the menu bar in a material designish kind of fashion */
+@media screen and (min-width: 576px) {
+  .actionBar {
+    display: none;
+  }
+}
+@media screen and (max-width: 575px) {
+  h1 {
+    display: none;
+  }
+  .brandname {
+    min-height: max-content;
+  }
+  .navbar-brand {
+    margin-right: 0;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%);
+  }
+}
+/*Reordering the components on the contacts page */
+@media screen and (max-width: 775px) {
+  .contactContainer {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1em 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+}

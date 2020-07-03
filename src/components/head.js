@@ -1,8 +1,11 @@
 import React from "react"
-import Helmet from "gatsby-plugin-react-helmet"
+import { Helmet } from "react-helmet"
 
-export default props(
-  <Helmet title={props.title}>
-    <meta name="description" content="" />
+export default () => (
+  <Helmet>
+    <script
+      async
+      src="https://epnt.ebay.com/static/epn-smart-tools.js"
+    ></script>
   </Helmet>
 )

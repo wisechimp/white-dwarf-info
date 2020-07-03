@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react"
 
-import Menu from './menu'
+import Menu from "./menu"
+import Header from "./head"
 
-export default (props) => (
+export default props => (
   <div>
+    <Header />
     <Menu pageTitle={props.pageTitle} />
     {props.children}
   </div>

@@ -8,6 +8,7 @@ import parse from "html-react-parser"
 import Layout from "../components/layout"
 import HeaderLinks from "../components/headerlinks"
 import ExternalLink from "../components/externallink"
+import Footer from "../components/footer"
 import issueStyles from "./whitedwarfissue.module.css"
 
 const mdxComponents = { Link, ExternalLink }
@@ -45,6 +46,7 @@ const WhiteDwarfIssueTemplate = ({ data }) => {
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
       </div>
+      <Footer issueNumber={frontmatter.issue} />
     </Layout>
   )
 }
