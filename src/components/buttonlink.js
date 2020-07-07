@@ -1,13 +1,12 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import buttonStyles from "./buttonlink.module.css"
 
 export default props => (
-  <Link
+  <a
     className={buttonStyles.buttonLink}
-    to={`/issues/white-dwarf-magazine-${props.targetIssueNumber}`}
+    href={`/issues/white-dwarf-magazine-${props.targetIssueNumber}`}
   >
     {props.targetIssueNumber}
-  </Link>
+  </a>
 )

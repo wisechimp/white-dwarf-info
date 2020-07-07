@@ -8,6 +8,7 @@ import parse from "html-react-parser"
 import Layout from "../components/layout"
 import HeaderLinks from "../components/headerlinks"
 import ExternalLink from "../components/externallink"
+import EbayFooter from "../components/ebayfooter"
 import issueStyles from "./whitedwarfissue.module.css"
 
 const mdxComponents = { Link, ExternalLink }
@@ -45,6 +46,7 @@ const WhiteDwarfIssueTemplate = ({ data }) => {
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
       </div>
+      <EbayFooter issueNumber={frontmatter.issue} />
     </Layout>
   )
 }
