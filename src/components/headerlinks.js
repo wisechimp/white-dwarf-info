@@ -4,10 +4,7 @@ import ButtonLink from "./buttonlink"
 import headerLinksStyles from "./headerlinks.module.css"
 
 export default props => {
-  //console.log(props)
-
   const existingIssuesArray = props.allIssueNumbers
-  //console.log(existingIssuesArray)
 
   const previousIssue = props.issueNumber - 1
   const nextIssue = props.issueNumber + 1

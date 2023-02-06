@@ -2,5 +2,6 @@
   border: 1px solid var(--primary-dark);
   height: 250px;
   margin: auto;
+  overflow: hidden;
   width: 80%;
 }
