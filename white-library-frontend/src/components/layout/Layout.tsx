@@ -1,6 +1,11 @@
 import React from "react"
 
-const Layout = ({ pageTitle, children }) => (
+interface LayoutProps {
+  pageTitle: string
+  children: JSX.Element | JSX.Element[]
+}
+
+const Layout = ({ pageTitle, children }: LayoutProps) => (
   <main>
     <h1>{pageTitle}</h1>
     {children}

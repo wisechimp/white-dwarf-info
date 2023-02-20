@@ -1,11 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 
 import IssueCard from "../components/issuecard/IssueCard"
 import Layout from "../components/layout/Layout"
 import { getImage } from "gatsby-plugin-image"
 
-const IssuesPage = ({ data }) => {
+const IssuesPage = ({ data }: PageProps<Queries.IssuesPageQuery>) => {
   console.log(data)
   const { edges } = data.allSanityIssue
   return (
@@ -13,7 +13,7 @@ const IssuesPage = ({ data }) => {
       <div>
         {edges.map(({ node }) => {
           const issueCoverImageData = getImage(
-            node.coverImage.asset.gatsbyImageData
+            node.coverImage!.asset!.gatsbyImageData
           )
           return (
             <IssueCard
@@ -31,7 +31,7 @@ const IssuesPage = ({ data }) => {
 export default IssuesPage
 
 export const issuesQuery = graphql`
-  query {
+  query IssuesPage {
     allSanityIssue {
       edges {
         node {

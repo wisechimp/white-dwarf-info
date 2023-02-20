@@ -106,6 +106,7 @@
     "./gatsby-node.ts",
     "./gatsby-config.ts",
     "./plugins/**/*",
-    "src/types/css-modules.d.ts"
+    "./src/gatsby-types.d.ts",
+    "./src/types/css-modules.d.ts"
   ]
 }
