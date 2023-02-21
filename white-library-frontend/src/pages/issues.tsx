@@ -1,32 +1,14 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
 
-import IssueCard from "../components/issuecard/IssueCard"
 import Layout from "../components/layout/Layout"
-import { getImage } from "gatsby-plugin-image"
+import IssueCardList from "../components/issuecard/IssueCardList"
 
-const IssuesPage = ({ data }: PageProps<Queries.IssuesPageQuery>) => {
-  console.log(data)
-  const { edges } = data.allSanityIssue
-  return (
-    <Layout pageTitle='Issues'>
-      <div>
-        {edges.map(({ node }) => {
-          const issueCoverImageData = getImage(
-            node.coverImage!.asset!.gatsbyImageData
-          )
-          return (
-            <IssueCard
-              key={node.id}
-              imageData={issueCoverImageData}
-              issueNumber={node.issueNumber}
-            />
-          )
-        })}
-      </div>
-    </Layout>
-  )
-}
+const IssuesPage = ({ data }: PageProps<Queries.IssuesPageQuery>) => (
+  <Layout pageTitle='Issues'>
+    <IssueCardList edges={data.allSanityIssue.edges} />
+  </Layout>
+)
 
 export default IssuesPage
 
