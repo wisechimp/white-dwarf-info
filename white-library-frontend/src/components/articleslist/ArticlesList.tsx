@@ -1,4 +1,6 @@
 import React from "react"
+import ReactHTMLParser from "react-html-parser"
+
 import WdArticleType from "../../types/wdArticleType"
 
 interface ArticleListInterface {
@@ -12,10 +14,13 @@ const ArticlesList = ({ edges }: ArticleListInterface) => {
     <div>
       {edges.map(({ node }) => {
         const { id, articleTitle, articleDescription, pageNumber } = node
+        const articleDescriptionHtml = ReactHTMLParser(articleDescription)
         return (
-          <p key={id}>
-            p{pageNumber} - {articleTitle}: {articleDescription}
-          </p>
+          <div key={id}>
+            <p>
+              p{pageNumber} - {articleTitle}: {articleDescriptionHtml}
+            </p>
+          </div>
         )
       })}
     </div>
