@@ -64,9 +64,6 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async (gatsbyUtils) => {
   const { createNode } = actions
 
   const { data } = await supabaseService.from("articles").select()
-
-  console.log(data)
-
   data!.forEach((article) => {
     createNode({
       id: createNodeId(article.id),

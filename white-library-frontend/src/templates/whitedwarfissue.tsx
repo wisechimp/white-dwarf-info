@@ -1,14 +1,29 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import React from "react"
+import ArticlesList from "../components/articleslist/ArticlesList"
 
 import Layout from "../components/layout/Layout"
+import WdArticleType from "../types/wdArticleType"
 import WdIssueType from "../types/wdIssueType"
 import * as styles from "./whitedwarfissue.module.css"
 
-const WhiteDwarfIssueTemplate = ({ data }: WdIssueType) => {
-  const { date, issueNumber, summary, coverImage } = data.sanityIssue
+interface WdIssueDataInterface {
+  data: {
+    articles: {
+      edges: {
+        node: WdArticleType
+      }[]
+    }
+    issue: WdIssueType
+  }
+}
+
+const WhiteDwarfIssueTemplate = ({ data }: WdIssueDataInterface) => {
+  console.log(data)
+  const { date, issueNumber, summary, coverImage } = data.issue
   const issueCoverData = getImage(coverImage.asset.gatsbyImageData)
+  const { edges } = data.articles
   return (
     <Layout pageTitle={"White Dwarf " + issueNumber}>
       <p>{date}</p>
@@ -17,6 +32,7 @@ const WhiteDwarfIssueTemplate = ({ data }: WdIssueType) => {
         image={issueCoverData!}
         alt='The cover of this white dwarf magazine'
       />
+      <ArticlesList edges={edges} />
     </Layout>
   )
 }
@@ -24,8 +40,8 @@ const WhiteDwarfIssueTemplate = ({ data }: WdIssueType) => {
 export default WhiteDwarfIssueTemplate
 
 export const query = graphql`
-  query IssueById($id: String) {
-    sanityIssue(id: { eq: $id }) {
+  query IssueAndArticles($id: String!, $issueNumber: Int!) {
+    issue: sanityIssue(id: { eq: $id }) {
       id
       date
       issueNumber
@@ -33,6 +49,22 @@ export const query = graphql`
       coverImage {
         asset {
           gatsbyImageData
+        }
+      }
+    }
+    articles: allWhiteDwarfArticles(
+      filter: { issueNumber: { eq: $issueNumber } }
+    ) {
+      edges {
+        node {
+          articleTitle
+          articleDescription
+          id
+          issueNumber
+          pageNumber
+          republished
+          republishedPublication
+          tag
         }
       }
     }

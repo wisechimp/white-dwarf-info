@@ -1,17 +1,13 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
 type WdIssueType = {
-  data: {
-    sanityIssue: {
-      id: string
-      date: string
-      issueNumber: number
-      summary: string
-      coverImage: {
-        asset: {
-          gatsbyImageData: IGatsbyImageData
-        }
-      }
+  id: string
+  date: string
+  issueNumber: number
+  summary: string
+  coverImage: {
+    asset: {
+      gatsbyImageData: IGatsbyImageData
     }
   }
 }
