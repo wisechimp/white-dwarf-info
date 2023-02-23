@@ -17,8 +17,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "rzlu1yzt",
-        dataset: "production",
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+        dataset: process.env.GATSBY_SANITY_PROJECT_DATASET,
       },
     },
     "gatsby-plugin-image",
