@@ -1,0 +1,11 @@
+body {
+  font-family: sans-serif;
+}
+
+/*Adds margin on large screens*/
+@media screen and (min-width: 996px) {
+  body {
+    max-width: 996px;
+    margin: auto;
+  }
+}

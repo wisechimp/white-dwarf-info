@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-import * as styles from "./issuecard.module.css"
+import * as issueCardStyles from "./issuecard.module.css"
 import { IGatsbyImageData } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser"
 
 interface IssueCardProps {
@@ -11,9 +11,9 @@ interface IssueCardProps {
 }
 
 export default ({ issueNumber, imageData }: IssueCardProps) => (
-  <div className={styles.issueCard}>
+  <div className={issueCardStyles.issueCard}>
     <GatsbyImage image={imageData} alt={`The cover of issue ${issueNumber}`} />
-    <div className={styles.issueCardText}>
+    <div className={issueCardStyles.issueCardRibbon}>
       <Link to={`/white-dwarf-magazine-issue-${issueNumber}`}>
         {issueNumber}
       </Link>
