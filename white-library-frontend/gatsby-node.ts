@@ -1,5 +1,6 @@
 import type { GatsbyNode } from "gatsby"
 import path from "path"
+import { createClient } from "@supabase/supabase-js"
 
 type BlogpostNodeType = {
   node: {
@@ -7,6 +8,10 @@ type BlogpostNodeType = {
     issueNumber: number
   }
 }
+
+const supabaseUrl = process.env.GATSBY_SUPABASE_URL
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY
+const supabaseService = createClient(supabaseUrl, supabaseServiceKey)
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -47,8 +52,35 @@ export const createPages: GatsbyNode["createPages"] = async ({
         component: issueTemplate,
         context: {
           id: node.id,
+          issueNumber: node.issueNumber,
         },
       })
     }
   )
+}
+
+export const sourceNodes: GatsbyNode["sourceNodes"] = async (gatsbyUtils) => {
+  const { actions, createNodeId, createContentDigest, reporter } = gatsbyUtils
+  const { createNode } = actions
+
+  const { data } = await supabaseService.from("articles").select()
+
+  console.log(data)
+
+  data!.forEach((article) => {
+    createNode({
+      id: createNodeId(article.id),
+      issueNumber: article.issue_number,
+      pageNumber: article.page_number,
+      articleTitle: article.article_title,
+      articleDescription: article.article_description,
+      tag: article.tag,
+      republished: article.republished,
+      republishedPublication: article.republished_publication,
+      internal: {
+        type: "WhiteDwarfArticles",
+        contentDigest: createContentDigest(article),
+      },
+    })
+  })
 }

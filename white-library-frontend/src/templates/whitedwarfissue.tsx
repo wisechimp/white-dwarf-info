@@ -3,25 +3,10 @@ import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import React from "react"
 
 import Layout from "../components/layout/Layout"
+import WdIssueType from "../types/wdIssueType"
 import * as styles from "./whitedwarfissue.module.css"
 
-interface IssueInterface {
-  data: {
-    sanityIssue: {
-      id: string
-      date: string
-      issueNumber: number
-      summary: string
-      coverImage: {
-        asset: {
-          gatsbyImageData: IGatsbyImageData
-        }
-      }
-    }
-  }
-}
-
-const WhiteDwarfIssueTemplate = ({ data }: IssueInterface) => {
+const WhiteDwarfIssueTemplate = ({ data }: WdIssueType) => {
   const { date, issueNumber, summary, coverImage } = data.sanityIssue
   const issueCoverData = getImage(coverImage.asset.gatsbyImageData)
   return (
