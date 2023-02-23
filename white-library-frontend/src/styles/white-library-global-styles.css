@@ -2,6 +2,10 @@ body {
   font-family: sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 /*Adds margin on large screens*/
 @media screen and (min-width: 996px) {
   body {

@@ -26,11 +26,13 @@ const WhiteDwarfIssueTemplate = ({ data }: WdIssueDataInterface) => {
   const { edges } = data.articles
   return (
     <Layout pageTitle={"White Dwarf " + issueNumber}>
-      <p>{date}</p>
-      <p>{summary}</p>
+      <p className={styles.issueSummary}>
+        {date} - {summary}
+      </p>
       <GatsbyImage
         image={issueCoverData!}
         alt='The cover of this white dwarf magazine'
+        className={styles.issueCover}
       />
       <ArticlesList edges={edges} />
     </Layout>
@@ -54,6 +56,7 @@ export const query = graphql`
     }
     articles: allWhiteDwarfArticles(
       filter: { issueNumber: { eq: $issueNumber } }
+      sort: { pageNumber: ASC }
     ) {
       edges {
         node {
