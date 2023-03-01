@@ -1,11 +1,13 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import React from "react"
-import ArticlesList from "../components/articleslist/ArticlesList"
 
-import Layout from "../components/layout/Layout"
 import WdArticleType from "../types/wdArticleType"
 import WdIssueType from "../types/wdIssueType"
+import Layout from "../components/layout/Layout"
+import ArticlesList from "../components/articleslist/ArticlesList"
+import EbayFooter from "../components/ebayfooter/EbayFooter"
+
 import * as styles from "./whitedwarfissue.module.css"
 
 interface WdIssueDataInterface {
@@ -35,7 +37,22 @@ const WhiteDwarfIssueTemplate = ({ data }: WdIssueDataInterface) => {
         className={styles.issueCover}
       />
       <ArticlesList edges={edges} />
+      <EbayFooter issueNumber={issueNumber} />
     </Layout>
+  )
+}
+
+export const Head = ({ data }: WdIssueDataInterface) => {
+  return (
+    <>
+      <title>{`White Dwarf Magazine Issue ${data.issue.issueNumber}`}</title>
+      <meta charSet='utf-8' />
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
+      <script
+        async
+        src='https://epnt.ebay.com/static/epn-smart-tools.js'
+      ></script>
+    </>
   )
 }
 
