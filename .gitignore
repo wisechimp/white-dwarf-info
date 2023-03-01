@@ -54,3 +54,6 @@ yarn-error.log
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Covers for the moment
+covers

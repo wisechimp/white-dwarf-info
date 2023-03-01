@@ -14,7 +14,7 @@ export default IssuesPage
 
 export const issuesQuery = graphql`
   query IssuesPage {
-    allSanityIssue {
+    allSanityIssue(sort: { issueNumber: ASC }) {
       edges {
         node {
           id
