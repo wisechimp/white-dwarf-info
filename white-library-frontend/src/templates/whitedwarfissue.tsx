@@ -43,15 +43,18 @@ const WhiteDwarfIssueTemplate = ({ data }: WdIssueDataInterface) => {
 }
 
 export const Head = ({ data }: WdIssueDataInterface) => {
+  const isBrowser = typeof window !== "undefined"
   return (
     <>
       <title>{`White Dwarf Magazine Issue ${data.issue.issueNumber}`}</title>
       <meta charSet='utf-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <script
-        async
-        src='https://epnt.ebay.com/static/epn-smart-tools.js'
-      ></script>
+      {isBrowser && (
+        <script
+          async
+          src='https://epnt.ebay.com/static/epn-smart-tools.js'
+        ></script>
+      )}
     </>
   )
 }

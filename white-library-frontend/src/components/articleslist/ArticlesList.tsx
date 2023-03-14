@@ -14,6 +14,7 @@ const ArticlesList = ({ edges }: ArticleListInterface) => {
     <div>
       {edges.map(({ node }) => {
         const { id, articleTitle, articleDescription, pageNumber } = node
+
         const articleDescriptionHtml = ReactHTMLParser(articleDescription)
         return (
           <div key={id}>
