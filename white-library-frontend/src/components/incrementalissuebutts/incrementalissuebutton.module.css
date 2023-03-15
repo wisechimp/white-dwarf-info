@@ -1,0 +1,12 @@
+.linkButton {
+  background-color: var(--primary-dark);
+  border-radius: 0.5em;
+  color: var(--primary-light);
+  display: flex;
+  font-size: 1em;
+  font-style: italic;
+  justify-content: space-around;
+  padding: 1em;
+  text-decoration: none;
+  width: 120px;
+}

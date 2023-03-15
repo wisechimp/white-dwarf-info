@@ -1,6 +1,7 @@
 import type { GatsbyNode } from "gatsby"
 import path from "path"
 import { createClient } from "@supabase/supabase-js"
+import strings from "./src/constants/strings"
 
 type BlogpostNodeType = {
   node: {
@@ -43,10 +44,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
     throw issuesData.errors
   }
 
-  const issueTemplate = path.resolve(`src/templates/whitedwarfissue.tsx`)
+  const issueTemplate = path.resolve(strings.templateLocation)
   issuesData.data?.allSanityIssue.edges.forEach(
     ({ node }: BlogpostNodeType) => {
-      const issuePath = `/white-dwarf-magazine-issue-${node.issueNumber}`
+      const issuePath = strings.slugBaseString + node.issueNumber
       createPage({
         path: issuePath,
         component: issueTemplate,
