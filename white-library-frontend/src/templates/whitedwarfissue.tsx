@@ -9,6 +9,7 @@ import ArticlesList from "../components/articleslist/ArticlesList"
 import EbayFooter from "../components/ebayfooter/EbayFooter"
 
 import * as styles from "./whitedwarfissue.module.css"
+import IncrementalIssueButtonPanel from "../components/incrementalissuebutts/IncrementalIssueButtonsPanel"
 
 interface WdIssueDataInterface {
   data: {
@@ -37,6 +38,7 @@ const WhiteDwarfIssueTemplate = ({ data }: WdIssueDataInterface) => {
         className={styles.issueCover}
       />
       <ArticlesList edges={edges} />
+      <IncrementalIssueButtonPanel issueNumber={issueNumber} />
       <EbayFooter issueNumber={issueNumber} />
     </Layout>
   )
